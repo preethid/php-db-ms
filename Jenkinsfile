@@ -7,7 +7,8 @@ pipeline{
     }
 
     stages{
-        stage('BUILD PHP DOCKERIMAGE AND PUSH TO DOKCERHUB'){
+        //terraform //ansible
+        stage('BUILD PHP DOCKERIMAGE AND PUSH TO DOCKERHUB'){
             agent any
             steps{
                 script{
