@@ -1,0 +1,19 @@
+appName: mysql
+appReplicas: 1
+appImage: devopstrainer/java-mvn-privaterepos
+appVersion: mysql
+containerPort: 3306
+servicePort: 3306
+serviceType: ClusterIP
+volumeName: mysql-store
+mountPath: /var/lib/mysql
+pvName: mysql1
+accessModes: ReadWriteOnce
+storageClass: manual
+pvStorage: 5Gi
+hostPath: /mnt/data
+claimName: mysql-pvc
+pvcStorage: 1Gi
+containerEnvVars:
+- name: MYSQL_ROOT_PASSWORD
+  value: "password"

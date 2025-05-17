@@ -1,0 +1,7 @@
+appName: nginx
+appReplicas: 3
+containerPort: 80
+appImage: nginx
+appVersion: latest
+serviceType: NodePort
+servicePort: 80

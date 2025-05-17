@@ -1,0 +1,7 @@
+appName: php
+appReplicas: 2
+containerPort: 80
+appImage: devopstrainer/java-mvn-privaterepos
+appVersion: php
+serviceType: NodePort
+servicePort: 80
