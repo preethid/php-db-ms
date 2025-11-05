@@ -2,7 +2,7 @@ pipeline{
     agent none
    
     environment{
-        BUILD_SERVER_IP='ec2-user@172.31.3.37'
+       BUILD_SERVER_IP='ec2-user@172.31.3.37'
        IMAGE_NAME='devopstrainer/java-mvn-privaterepos:php$BUILD_NUMBER'
        DEPLOY_SERVER_IP='ec2-user@172.31.2.206'
     }
@@ -26,7 +26,7 @@ pipeline{
         }
     }
 }
-stage('RUN PHP_DB with Dockercompose'){
+        stage('RUN PHP_DB with Dockercompose'){
             agent any
             steps{
                 script{
