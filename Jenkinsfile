@@ -2,13 +2,13 @@ pipeline{
     agent none
    
     environment{
-       BUILD_SERVER_IP='ec2-user@172.31.6.165'
+       BUILD_SERVER_IP='ec2-user@172.31.40.52'
        IMAGE_NAME='devopstrainer/java-mvn-privaterepos:php$BUILD_NUMBER'
-       DEPLOY_SERVER_IP='ec2-user@172.31.9.14'
+       DEPLOY_SERVER_IP='ec2-user@172.31.43.17'
     }
 
     stages{
-        //terraform //ansible
+       
         stage('BUILD PHP DOCKERIMAGE AND PUSH TO DOCKERHUB'){
             agent any
             steps{
