@@ -2,9 +2,9 @@ pipeline{
     agent none
    
     environment{
-       BUILD_SERVER_IP='ec2-user@172.31.12.173'
+       BUILD_SERVER_IP='ec2-user@13.232.63.134'
        IMAGE_NAME='devopstrainer/java-mvn-privaterepos:php$BUILD_NUMBER'
-       DEPLOY_SERVER_IP='ec2-user@172.31.2.142'
+       DEPLOY_SERVER_IP='ec2-user@65.2.57.36'
     }
 
     stages{
@@ -13,7 +13,7 @@ pipeline{
             agent any
             steps{
                 script{
-                sshagent(['slave2']) {
+                sshagent(['slave1']) {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 echo "Building the php image"
                 sh "scp -o StrictHostKeyChecking=no -r BuildConfig ${BUILD_SERVER_IP}:/home/ec2-user"
@@ -30,7 +30,7 @@ pipeline{
             agent any
             steps{
                 script{
-                sshagent(['slave2']) {
+                sshagent(['slave1']) {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                 echo "Deploy PHP and Sql containers"
                 sh "scp -o StrictHostKeyChecking=no -r deployConfig ${DEPLOY_SERVER_IP}:/home/ec2-user"
